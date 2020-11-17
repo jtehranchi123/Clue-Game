@@ -1,3 +1,15 @@
+commit 98bf99d6a285478a34bc961eed16cf60098fa2ae
+Author: Tommy Bullock <revtimtom22@gmail.com>
+Date:   Mon Nov 16 20:03:32 2020 -0700
+
+    Made old tests pass after changes to movement, card logic
+
+commit cb330f041e9b20fb74a84d51aad5018abd5f82ea
+Author: Tommy Bullock <revtimtom22@gmail.com>
+Date:   Mon Nov 16 20:03:01 2020 -0700
+
+    Jordan and Tommy debugged graphics, added initial turn flow
+
 commit 01478ef763c66fa244ff425f2086baa3ed0b5f04
 Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
 Date:   Thu Nov 12 22:36:42 2020 -0700
