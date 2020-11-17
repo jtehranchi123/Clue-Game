@@ -1,0 +1,43 @@
+// Rooms and room cards
+Room, Kitchen, K
+Room, Observatory, O
+Room, Game Room, G
+Room, Lounge, L
+Room, Theater, T
+Room, Swimming Pool, S
+Room, Bakery, B
+Room, Auditorium, A
+Room, Casino, C
+// other spaces on board
+Space, Unused, X
+Space, Walkway, W
+// Players
+Player, Colonel Mustard, yellow, Human, 3, 0
+Player, Professor Plum, magenta, Computer, 15, 0
+Player, Miss Scarlett, red, Computer, 29, 4
+Player, Miss Peacock, blue, Computer, 29, 9
+Player, Mrs. White, white, Computer, 21, 13
+Player, Mr. Green, green, Computer, 9, 13
+// Cards
+Card, W, Wrench
+Card, W, Rope
+Card, W, Candlestick
+Card, W, Revolver
+Card, W, Lead Pipe
+Card, W, Dagger
+Card, P, Colonel Mustard
+Card, P, Professor Plum
+Card, P, Miss Scarlett
+Card, P, Miss Peacock
+Card, P, Mrs. White
+Card, P, Mr. Green
+Card, R, Kitchen
+Card, R, Observatory
+Card, R, Game Room
+Card, R, Lounge
+Card, R, Theater
+Card, R, Swimming Pool
+Card, R, Bakery
+Card, R, Auditorium
+Card, R, Casino
+

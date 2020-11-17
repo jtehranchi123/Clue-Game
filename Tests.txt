@@ -1,0 +1,21 @@
+Names: Jordan Tehranchi and Tommy Bullock
+
+- We setup all the tests with a @BeforeAll to create an instance of the board using the Singleton Pattern
+- Our board takes a parametrized constructor in which we initialized to 50x50 for the assignment purpose,
+however, will change once we setup the methods within the Class stubs in a future assignment.
+
+- First we test to see if the Room Labels from our board match their respective names to ensure proper data loading
+
+- Another test confirms the dimension with Constants we have set for the COL and ROW lengths
+
+- In testing the door directions:
+1.) The Swimming Pool has a door opening to the LEFT
+2.) The Lounge has a door opening UP
+3.) The Auditorium has a door opening DOWN
+4.) The Observatory has a door opening RIGHT
+5.) Also tests that a walkway is not a door
+
+- Another test checks for the Number of Doorways compared to a set Constant.
+
+- Finally, four more tests check for secret passage cells, unused cells, walkways, and room centers/labels. 
+

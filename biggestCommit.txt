@@ -1,0 +1,82 @@
+Author 1: Jordan Tehranchi 
+Author 2: Tommy Bullock
+Date: 10/28/2020
+
+
+BEFORE:
+
+                // secret passage logic
+		for (BoardCell[] eachRow : grid) {
+			for (BoardCell eachCell : eachRow) {
+				for (Entry<Character, Room> eachEntry : roomMap.entrySet()) {
+					// if this is a secret passage to an existing room in roomMap
+					// avoid linking things to themselves
+					if (eachCell.getInitial() != eachEntry.getKey()
+							&& eachCell.getSecretPassage() == eachEntry.getKey()) {
+						// add both room centers to each other's adj list
+						BoardCell thisCenter = roomMap.get(eachCell.getInitial()).getCenterCell(),
+								thatCenter = eachEntry.getValue().getCenterCell();
+						adjacencies.get(thisCenter).add(thatCenter);
+						adjacencies.get(thatCenter).add(thisCenter);
+					}
+				}
+				// remove this cell from its own adj list
+				if (adjacencies.get(eachCell).contains(eachCell)) {
+					adjacencies.get(eachCell).remove(eachCell);
+				}
+			}
+		}
+		// non-center room cells logic & self-connection logic
+		for (BoardCell[] eachRow : grid) {
+			for (BoardCell eachCell : eachRow) {
+				for (Entry<Character, Room> eachEntry : roomMap.entrySet()) {
+					// if this is part of a Room, this cell gets all roomCenter adjacencies
+					if (eachCell.getInitial() != 'X' && eachCell.getInitial() != 'W'
+							&& eachCell.getInitial() == eachEntry.getKey()) {
+						adjacencies.put(eachCell, adjacencies.get(eachEntry.getValue().getCenterCell()));
+					}
+					// remove this cell from its own adj list
+					if (adjacencies.get(eachCell).contains(eachCell)) {
+						adjacencies.get(eachCell).remove(eachCell);
+					}
+				}
+			}
+		}
+
+
+
+
+AFTER: (Condensed Both Nested For-Loops for secret passage and non-center room cells together into one looping mechanism)
+
+                // secret passage logic
+		// and
+		// non-center room cells logic & self-connection logic
+		for (BoardCell[] eachRow : grid) {
+			for (BoardCell eachCell : eachRow) {
+				for (Entry<Character, Room> eachEntry : roomMap.entrySet()) {
+					// if this is a secret passage to an existing room in roomMap
+					// avoid linking things to themselves
+					if (eachCell.getInitial() != eachEntry.getKey()
+							&& eachCell.getSecretPassage() == eachEntry.getKey()) {
+						// add both room centers to each other's adj list
+						BoardCell thisCenter = roomMap.get(eachCell.getInitial()).getCenterCell(),
+								thatCenter = eachEntry.getValue().getCenterCell();
+						adjacencies.get(thisCenter).add(thatCenter);
+						adjacencies.get(thatCenter).add(thisCenter);
+					}
+					// if this is part of a Room, this cell gets all roomCenter adjacencies
+					if (eachCell.getInitial() != 'X' && eachCell.getInitial() != 'W'
+							&& eachCell.getInitial() == eachEntry.getKey()) {
+						adjacencies.put(eachCell, adjacencies.get(eachEntry.getValue().getCenterCell()));
+					}
+					// remove this cell from its own adj list
+					if (adjacencies.get(eachCell).contains(eachCell)) {
+						adjacencies.get(eachCell).remove(eachCell);
+					}
+				}
+				// remove this cell from its own adj list
+				if (adjacencies.get(eachCell).contains(eachCell)) {
+					adjacencies.get(eachCell).remove(eachCell);
+				}
+			}
+		}

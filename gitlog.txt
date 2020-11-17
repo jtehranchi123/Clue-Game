@@ -1,0 +1,323 @@
+commit 01478ef763c66fa244ff425f2086baa3ed0b5f04
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Thu Nov 12 22:36:42 2020 -0700
+
+    ClueGame class implemented into JFrame and control panel, cards panel, and board panel added successfully. Game displays
+
+commit e710cccfc412a75c052539b1dc6a1103c25b4c49
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Thu Nov 12 21:39:26 2020 -0700
+
+    Added paintComponent into Board class and implemented conditional scenarios
+
+commit ac31f58d5a100a2657a9e7daecc24f2aa5f5b0d9
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Thu Nov 12 21:38:51 2020 -0700
+
+    Added player class draw method and implemented
+
+commit dd8fae2945c2fcaa7304dd73f4ea5d875db12b98
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Thu Nov 12 21:38:29 2020 -0700
+
+    Added boardcell draw method and integrated different test scenarios
+
+commit 1199e3d2a2d1c1f501275bb5054041f35c12f70b
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Nov 9 22:39:28 2020 -0700
+
+    Refactored code and added colors to cards associated to different players (computer and human)
+
+commit 3fd55964120de09ff2c30d487e2fa056091837c2
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Nov 9 22:37:42 2020 -0700
+
+    Implemented updateCards() method filtering through seen and hand lists to sort and recreate a new list of panels for rooms,weapons, and people associated to each category
+
+commit 259d62408efd2ebdc2a23e011f05e1878a3cb198
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Nov 9 22:36:13 2020 -0700
+
+    Added getters for player seen and hand, also initialized GameCardPanel inHand and Seen Panel layout
+
+commit 2096bdeb60ed19c799cf1f2713a1435c6226a961
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Nov 9 18:06:08 2020 -0700
+
+    GameCardsPanel.java class created and overall layout of Person, Room, and Weapon setup within GUI
+
+commit 7ee6f1e05ff35547517ccc8027ab454bbc32a3ad
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Nov 9 17:11:25 2020 -0700
+
+    Tommy organized panels into neat order and created two panels to seperate subpanels from the top and bottom in order to have output similar to assignment details
+
+commit 6338f61ecc4b19156d304ce61f42a42794e9f5a5
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Nov 9 17:10:01 2020 -0700
+
+    Jordan Implemented JPanels and Buttons for GameControlPanel class
+
+commit 8a191b37737f7a34d639391ba926bc4f64f262f0
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Nov 9 17:09:23 2020 -0700
+
+    Added getters to Player class and implemented main func into GameControlPanel class
+
+commit fe2cec6b047eb10942825a76f4856c672bb8c768
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Fri Nov 6 16:26:15 2020 -0700
+
+    Finished and got all tests passing in both test classes ComputerAI and GameSolution.
+
+commit 88947eb0d54ac46e7bf9ad0c2e4ac9f353a3a3c9
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Fri Nov 6 16:15:23 2020 -0700
+
+    Code for tests and methods refactored properly
+
+commit 57ace7a7d6f7d251761fb1b99fc2cd98b5c72324
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Fri Nov 6 16:15:01 2020 -0700
+
+    handleSuggestionTests passing successfully and implemented
+
+commit 2c53979d6ac6079e5dbe5cab58b42fd280da826a
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Fri Nov 6 16:14:37 2020 -0700
+
+    testCreateSuggestion() tests passing successfully
+
+commit ff214d1f8dcea8e954428ef98e5c2b97ff37a6d9
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Thu Nov 5 16:43:14 2020 -0700
+
+    Got disproveSuggestionTests to pass
+
+commit 9a2077d7c851c4ee83b2ae01f2f939f8222435d5
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Thu Nov 5 16:42:54 2020 -0700
+
+    Got testSelectTargets tests to pass
+
+commit b3a86a65be4d541742a7ab9d67c592c5a07ce7ff
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Wed Nov 4 17:45:03 2020 -0700
+
+    Added ComputerAITest and GameSolutionTest java classes
+
+commit 15bbea814b5a1642b48852ce25925109115f0fdb
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Tue Nov 3 10:36:53 2020 -0700
+
+    Added Methods to Board CompuerPlayer and Player classes, currently stubbed
+
+commit 275deb7142c31424b7f5f964ec163bbf87528952
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Nov 2 22:01:13 2020 -0700
+
+    gameSetupTests.java unit tests successfully implemented and pass
+
+commit dbe39090cb7c26e1bc546624c43636d4fa08d213
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Nov 2 21:32:08 2020 -0700
+
+    Fixed Old tests in order to get them to pass
+
+commit 909f274fd33e6e1abb163bc7d0512b666520a3e1
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Nov 2 18:33:07 2020 -0700
+
+    Tommy added failing tests for card equals, and added non-functional tests for update hand, and initialize, and deal
+
+commit b4241e99b2870a333d40f69748838bf0b32232dd
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Nov 2 18:32:15 2020 -0700
+
+    Jordan added players and cards to cluesetup.txt
+
+commit 8bb7a2b2326bb9212eb1babacd7f86890201ef4c
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Sun Nov 1 22:50:39 2020 -0700
+
+    Solution.java class and constructor implemented including gameSetupTests.java class
+
+commit 5809c83ea8047e6abf74c0027ed068c588f09fd6
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Sun Nov 1 22:43:37 2020 -0700
+
+    Player, ComputerPlayer, and HumanPlayer base classes and constructors implemented into ClueGame
+
+commit 3e9617b5cad53b992523cc5a2bf658224e17711f
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Sun Nov 1 22:33:10 2020 -0700
+
+    CardType.Java and Card.Java classes implemented with methods and getters/setters
+
+commit 35bf0f17ec6c8be7a7d7d2eed5fd5ddcc690b543
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Thu Oct 29 15:40:29 2020 -0600
+
+    Commit #8: Condensed secret passage logic and non-center room cell adjacency list calculation from two seperate looping mechanisms into one. Seen in biggestCommit.txt file
+
+commit 63079aba3382fdf66e99db08b14757a5a66f2f69
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Wed Oct 28 19:53:50 2020 -0600
+
+    Commit #7: All Sets and Maps generalized from specific set to general Sets and also variables in Board.java class that were similar renamed to represent appropriate function (e.g board changed to grid, etc..)
+
+commit b5ec7c48d18c7d23d507dc89ca81a3f048b35092
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Wed Oct 28 19:42:02 2020 -0600
+
+    Commit #6: @Override added to compareTo methods for BoardCell.java class to allow for specific implementation
+
+commit 0139066310aef1ce2b43b7b1307913793c0bf7fc
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Wed Oct 28 19:39:16 2020 -0600
+
+    Commit #5: Variable Declarations corrected to be on seperate lines and TODOS removed
+
+commit 0abeec6b9b6c19fb2583e23740686510b39f199c
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Wed Oct 28 19:28:49 2020 -0600
+
+    Commit #4: Added Comments to describe constructor variables and switch statements within BoardCell.java
+
+commit cb6c984d097edc460f00bb8d417e29dc2a73fb12
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Wed Oct 28 19:24:30 2020 -0600
+
+    Commit #3: Improved BadConfigException Messages to user for bad file cases
+
+commit e4d058c61017cbf9377a1b67ba3bab0eb518e9c1
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Wed Oct 28 19:17:20 2020 -0600
+
+    Commit #2: Condensed repetitive try-catch statements into one including all methods calls
+
+commit 7b868ae8d596c615dd32579ae45061bed5e265e5
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Wed Oct 28 19:15:49 2020 -0600
+
+    Commit #1: Changed variable names and methods in Board.java
+
+commit 5e8a01ec5905deca6c41353a2b7715e3d14ef2eb
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Thu Oct 15 18:51:34 2020 -0600
+
+    Modified and refactored code in addition to modifying BoardAdjTargetTest.java class to ensure tests are running properly
+
+commit c9355250bd17292b0c4a588a3b595c92262be8db
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Thu Oct 15 18:50:54 2020 -0600
+
+    Modified calcAdjList and calcTargetList methods to accomodate for larger board scenario
+
+commit af205bcfe987a5f41f70fe081244bdb67d830606
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Tue Oct 13 17:21:36 2020 -0600
+
+    Code refactored and formatted for submission
+
+commit 5f84546f4fe0baa9bd50b791af386d82d9d17906
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Tue Oct 13 17:20:36 2020 -0600
+
+    Spreadsheet updated for testing locations
+
+commit d0ba88bd89ecb73fa5e80b368468fb41c7da5d1f
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Tue Oct 13 16:56:45 2020 -0600
+
+    Refactored Code to be seperated into helper methods and local variables
+
+commit 13a6a4f2bbf54aa7c5be381ed963437672008009
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Tue Oct 13 00:49:59 2020 -0600
+
+    Formatted BoardAdjTargetTest.java for our board and working on making tests pass
+
+commit f05d4e9dcb8359b95bf3a82f00189c29493980ab
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Tue Oct 13 00:49:27 2020 -0600
+
+    ExceptionTest306.java test passes after modifications to Board.java class
+
+commit 2b177ff78e86f7287fd3c4d21ef3684214b49990
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Tue Oct 13 00:48:53 2020 -0600
+
+    FileInitTest.java and FileInitTest306.java verified and passed
+
+commit e404f3b9c8472bb6dbeff941ac83afcc413bbaf4
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Tue Oct 13 00:47:29 2020 -0600
+
+    Board and Board cell methods modified for loading setup and laayout file
+
+commit 8d143906c875cfc45d12241cead1b117d7954d18
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Oct 12 15:40:02 2020 -0600
+
+    BoardAdjTargetTest.java class implemented for our board. implemented before fileinittest class while waiting for fix
+
+commit bf25aedc56ac550d4eb16bdd5941ed6cf5421840
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Sun Oct 11 18:06:48 2020 -0600
+
+    Created all getter and setter methods and constructors for Board BoardCell and Room classes
+
+commit 8b5017e034007d8b67fad6e51a6c5b5f9cf3fd17
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Fri Oct 9 15:34:09 2020 -0600
+
+    Added Tests.txt file documentation and formatted testing files to fail but not error
+
+commit 8c858b83a2e0e74f0aa22f3afba0ae0a1363e3ce
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Fri Oct 9 14:33:32 2020 -0600
+
+    Created and added test cases to our board in FileInitTest.java junit class
+
+commit 9224c7c204eeac8c6aba771fc44ad702e42f34df
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Thu Oct 8 19:17:46 2020 -0600
+
+    New classes BoardCell.java DoorDirection.java Board.java BadConfigFormatException.java and Room.java added to ClueGame
+
+commit acdd78d919d613d08af65c082425c72c39ec0ec9
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Thu Oct 8 18:37:10 2020 -0600
+
+    Formatted code to meet CSCI 306 coding standards
+
+commit b35573ef0a6dbdb6602a0467411e4e5b0998f243
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Thu Oct 8 18:35:57 2020 -0600
+
+    Added Methods to calculate Adjacency list and Target List
+
+commit d2cf35c2cf358bd72bc4c49287e1f1350c0ebdf0
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Oct 5 21:11:51 2020 -0600
+
+    Tommy integrated TestBoardCell calcTargets() and calcAdjList() methods and stubbed for purposes of grading assignment, and README added, and tests all fail without errors
+
+commit 75883ad802ec4f0a9fc9a3b187a223d637f02ea2
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Oct 5 20:30:39 2020 -0600
+
+    Jordan implemented BoardTestsExp testing cases
+
+commit 5d8cafb628040d27baab4c5e0bdd09d6b35a9c6b
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Sun Oct 4 18:04:24 2020 -0600
+
+    Tommy and Jordan initialized TestBoard, TestBoardCell, and BoardTestsExp classes in correct packages
+
+commit b3b5e03e32016bf143721fb365f00063798c4499
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Sun Oct 4 16:01:54 2020 -0600
+
+    .gitignore created
