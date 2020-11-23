@@ -31,10 +31,10 @@ public class MakeAnAccusation extends JDialog {
 		JPanel roomPanel = new JPanel();
 		roomPanel.setBorder(new TitledBorder(new EtchedBorder()));
 		roomPanel.setLayout(new GridLayout(1,2));
-		JPanel roomSuggestion = new JPanel();
-		roomSuggestion.setLayout(new GridLayout(1,1));
+		JPanel roomAccusation = new JPanel();
+		roomAccusation.setLayout(new GridLayout(1,1));
 		JLabel room = new JLabel("Room");
-		roomSuggestion.add(room);
+		roomAccusation.add(room);
 		JPanel roomChoice = new JPanel();
 		roomChoice.setLayout(new GridLayout(1,1));
 		roomSelection = new JComboBox<String>();
@@ -44,21 +44,21 @@ public class MakeAnAccusation extends JDialog {
 			}
 		}
 		roomChoice.add(roomSelection);
-		roomPanel.add(roomSuggestion);
+		roomPanel.add(roomAccusation);
 		roomPanel.add(roomChoice);
 		add(roomPanel);
-		
-		
-		
+
+
+
 
 		// Person Panel to mainPanel
 		JPanel playerPanel = new JPanel();
 		playerPanel.setBorder(new TitledBorder(new EtchedBorder()));
 		playerPanel.setLayout(new GridLayout(1,2));
-		JPanel personSuggestion = new JPanel();
-		personSuggestion.setLayout(new GridLayout(1,1));
+		JPanel personAccusation = new JPanel();
+		personAccusation.setLayout(new GridLayout(1,1));
 		JLabel person = new JLabel("Person");
-		personSuggestion.add(person);
+		personAccusation.add(person);
 
 		JPanel personChoice = new JPanel();
 		personChoice.setLayout(new GridLayout(1,1));
@@ -68,7 +68,7 @@ public class MakeAnAccusation extends JDialog {
 			personSelection.addItem(player.getName());
 		}
 		personChoice.add(personSelection);
-		playerPanel.add(personSuggestion);
+		playerPanel.add(personAccusation);
 		playerPanel.add(personChoice);
 		add(playerPanel);
 
@@ -78,21 +78,21 @@ public class MakeAnAccusation extends JDialog {
 		JPanel weaponPanel = new JPanel();
 		weaponPanel.setBorder(new TitledBorder(new EtchedBorder()));
 		weaponPanel.setLayout(new GridLayout(1,2));
-		JPanel weaponSuggestion = new JPanel();
+		JPanel weaponAccusation = new JPanel();
 
-		weaponSuggestion.setLayout(new GridLayout(1,1));
+		weaponAccusation.setLayout(new GridLayout(1,1));
 		JLabel weapon = new JLabel("Weapon");
-		weaponSuggestion.add(weapon);
+		weaponAccusation.add(weapon);
 		JPanel weaponChoice = new JPanel();
 		weaponChoice.setLayout(new GridLayout(1,1));
 		weaponSelection = new JComboBox<String>();
-		for( Card c : Board.getInstance().getDeck()) {
-			if(c.getCardType() == CardType.WEAPON) {
-				weaponSelection.addItem(c.getCardName());
+		for( Card card : Board.getInstance().getDeck()) {
+			if(card.getCardType() == CardType.WEAPON) {
+				weaponSelection.addItem(card.getCardName());
 			}
 		}
 		weaponChoice.add(weaponSelection);
-		weaponPanel.add(weaponSuggestion);
+		weaponPanel.add(weaponAccusation);
 		weaponPanel.add(weaponChoice);
 		add(weaponPanel);
 
@@ -101,25 +101,28 @@ public class MakeAnAccusation extends JDialog {
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new GridLayout(1,2));
 
-		// Add submit button to Panel
+		// Add submit button to Panel for Accusations
+		// Player winOrLose Dialog added based on accusation by HumanPlayer
 		JPanel submitPanel = new JPanel();
 		submitPanel.setLayout(new GridLayout(1,1));
 		JButton submitButton = new JButton("Submit");
 		submitButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Solution accusation = new Solution((Card)personSelection.getSelectedItem(),(Card)roomSelection.getSelectedItem(),(Card)weaponSelection.getSelectedItem());
-				boolean finalResult = Board.getInstance().checkAccusation(accusation); 
+				Solution playerAccusation = new Solution((Card)personSelection.getSelectedItem(),(Card)roomSelection.getSelectedItem(),(Card)weaponSelection.getSelectedItem());
+				boolean finalResult = Board.getInstance().checkAccusation(playerAccusation); 
 				String resultTitle = "Accusation Result";
-				String message;
+				String winOrLossMessage;
 				if(finalResult) {
-					message = "You have won! It was " + accusation.getPerson() + " in the " + accusation.getRoom() + " with the " + accusation.getWeapon();
+					winOrLossMessage = "You have won! It was " + playerAccusation.getPerson() + " in the " + playerAccusation.getRoom() + " with the " + playerAccusation.getWeapon();
+					JOptionPane.showMessageDialog(Board.getInstance(), winOrLossMessage, resultTitle, JOptionPane.INFORMATION_MESSAGE);
+					System.exit(0);
 				}
 				else {
-					message = "You have guessed incorrectly. The guess: " + accusation.getPerson() + " in the " + accusation.getRoom() + " with the " + accusation.getWeapon() + " is incorrect.";
+					winOrLossMessage = "You have lost!! The guess: " + playerAccusation.getPerson() + " in the " + playerAccusation.getRoom() + " with the " + playerAccusation.getWeapon() + " is incorrect. Better luck next time!";
+					JOptionPane.showMessageDialog(Board.getInstance(), winOrLossMessage, resultTitle, JOptionPane.INFORMATION_MESSAGE);
+					System.exit(0);
 				}
-				JOptionPane.showMessageDialog(Board.getInstance(), message, resultTitle, JOptionPane.INFORMATION_MESSAGE);
-				System.exit(0);
 				dispose();
 			}
 		});

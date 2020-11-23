@@ -18,17 +18,17 @@ public class MakeASuggestion extends JDialog {
 	private JComboBox<String> weaponSelection;
 	private String currentRoom;
 	private Board board;
-	
-	
+
+
 	public MakeASuggestion(String currentRoom, Board board) {
-		
+
 		this.currentRoom = currentRoom;
 		this.board = board;
-		
+
 		setTitle("Make a Suggestion");
 		setSize(250,300);
 		setLayout(new GridLayout(4,1));
-		
+
 		// Room Panel to mainPanel
 		JPanel roomPanel = new JPanel();
 		roomPanel.setBorder(new TitledBorder(new EtchedBorder()));
@@ -38,7 +38,7 @@ public class MakeASuggestion extends JDialog {
 		roomPanel.add(roomLeftLabel);
 		roomPanel.add(roomRightLabel);
 		add(roomPanel);
-		
+
 		// Person Panel to mainPanel
 		JPanel playerPanel = new JPanel();
 		playerPanel.setBorder(new TitledBorder(new EtchedBorder()));
@@ -47,11 +47,11 @@ public class MakeASuggestion extends JDialog {
 		personSuggestion.setLayout(new GridLayout(1,1));
 		JLabel person = new JLabel("Person");
 		personSuggestion.add(person);
-		
+
 		JPanel personChoice = new JPanel();
 		personChoice.setLayout(new GridLayout(1,1));
 		personSelection = new JComboBox<String>();
-		
+
 		for( Player player: board.getPlayers()) {
 			personSelection.addItem(player.getName());
 		}
@@ -59,37 +59,38 @@ public class MakeASuggestion extends JDialog {
 		playerPanel.add(personSuggestion);
 		playerPanel.add(personChoice);
 		add(playerPanel);
-		
-		
-		
+
+
+
 		// Weapon Panel to mainPanel
 		JPanel weaponPanel = new JPanel();
 		weaponPanel.setBorder(new TitledBorder(new EtchedBorder()));
 		weaponPanel.setLayout(new GridLayout(1,2));
 		JPanel weaponSuggestion = new JPanel();
-		
+
 		weaponSuggestion.setLayout(new GridLayout(1,1));
 		JLabel weapon = new JLabel("Weapon");
 		weaponSuggestion.add(weapon);
 		JPanel weaponChoice = new JPanel();
 		weaponChoice.setLayout(new GridLayout(1,1));
 		weaponSelection = new JComboBox<String>();
-		for( Card c : board.getDeck()) {
-			if(c.getCardType() == CardType.WEAPON) {
-				weaponSelection.addItem(c.getCardName());
+		for( Card card : board.getDeck()) {
+			if(card.getCardType() == CardType.WEAPON) {
+				weaponSelection.addItem(card.getCardName());
 			}
 		}
 		weaponChoice.add(weaponSelection);
 		weaponPanel.add(weaponSuggestion);
 		weaponPanel.add(weaponChoice);
 		add(weaponPanel);
-		
-		
+
+
 		// Add Buttons to Panel
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new GridLayout(1,2));
-		
-		// Add submit button to Panel
+
+		// Add submit button to Panel for Suggestions
+		// Handling of actions for setting guess/guess results set based on Human Player suggestion
 		JPanel submitPanel = new JPanel();
 		submitPanel.setLayout(new GridLayout(1,1));
 		JButton submitButton = new JButton("Submit");
@@ -102,14 +103,14 @@ public class MakeASuggestion extends JDialog {
 				if (card != null) {
 					ClueGame.setSuggestionUI(solution.toString(), card.getCardName());
 				} else {
-					ClueGame.setSuggestionUI(solution.toString(), "No new clue");
+					ClueGame.setSuggestionUI(solution.toString(), "Nothin New");
 				}
 				dispose();
 			}
 		});
 		submitPanel.add(submitButton);
-		
-		
+
+
 		// Add cancel button to Panel
 		JPanel cancelPanel = new JPanel();
 		cancelPanel.setLayout(new GridLayout(1,1));
@@ -124,12 +125,9 @@ public class MakeASuggestion extends JDialog {
 		buttonPanel.add(submitButton);
 		buttonPanel.add(cancelButton);
 		add(buttonPanel);
-		
-		
-		
-		
+
 	}
-	
+
 	public static void main(String[] args) {
 		Board board = Board.getInstance();
 		board.setConfigFiles("data/ClueLayout.csv", "data/ClueSetup.txt");
@@ -137,6 +135,6 @@ public class MakeASuggestion extends JDialog {
 		MakeASuggestion test = new MakeASuggestion("Pool",board);
 		test.setVisible(true);
 	}
-	
-	
+
+
 }
