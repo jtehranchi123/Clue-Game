@@ -39,6 +39,7 @@ public abstract class Player {
 		if (!hand.contains(card)) {
 			hand.add(card);
 			card.setPlayerColor(color);
+			card.setOwnedBy(this);
 		}
 	}
 

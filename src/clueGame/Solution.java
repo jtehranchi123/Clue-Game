@@ -28,4 +28,8 @@ public class Solution {
 		return this.room.equals(o.room) && this.person.equals(o.person) && this.weapon.equals(o.weapon);
 	}
 
+	public String toString() {
+		return "Person:  " + person.getCardName() + "; Room:  " + room.getCardName() + "; Weapon:  " + weapon.getCardName();
+	}
+
 }

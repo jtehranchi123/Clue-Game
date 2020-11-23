@@ -41,11 +41,18 @@ public class ClueGame extends JFrame {
 		setVisible(true); // setVisible set to true
 		board.repaint(); // board repainted to ensure resizing works successfully
 	}
+	
+	public static void setSuggestionUI(String guess, String guessResult) {
+		controlPanel.setGuess(guess);
+		controlPanel.setGuessResult(guessResult);
+		controlPanel.repaint();
+	}
 
 	public static void main(String[] args) {
 
 		// Initialize new ClueGame
 		ClueGame game = new ClueGame();
+		// TODO fix up
 		board.rollDice();
 		board.calcTargets(board.getCell(board.getCurrentPlayer().getRow(), board.getCurrentPlayer().getCol()),
 				board.getDiceRoll());
@@ -57,4 +64,7 @@ public class ClueGame extends JFrame {
 		JOptionPane.showMessageDialog(game, userMessage, intro, JOptionPane.INFORMATION_MESSAGE);
 
 	}
+	
+	
+	
 }

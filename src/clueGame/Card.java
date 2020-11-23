@@ -5,8 +5,18 @@ import java.awt.Color;
 public class Card implements Comparable<Card> {
 
 	private String cardName;
+
 	private CardType cardType;
-	private Color playerColor; 
+	private Color playerColor;
+	private Player ownedBy; 
+
+	public Player getOwnedBy() {
+		return ownedBy;
+	}
+
+	public void setOwnedBy(Player ownedBy) {
+		this.ownedBy = ownedBy;
+	}
 
 	public Color getPlayerColor() {
 		return playerColor;
