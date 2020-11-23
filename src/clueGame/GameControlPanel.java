@@ -53,24 +53,33 @@ public class GameControlPanel extends JPanel {
 		topPanel.add(dieRollPanel);
 
 		// Button for next Player created and added to GameControlPanel
-		JButton nextPlayer = new JButton("Go to Next!");
-		nextPlayer.setBackground(Color.cyan);
-		nextPlayer.setOpaque(true);
+		JButton nextPlayerButton = new JButton("Go to Next!");
+		nextPlayerButton.setBackground(Color.cyan);
+		nextPlayerButton.setOpaque(true);
 		JPanel nextPlayerPanel = new JPanel(new BorderLayout());
-		nextPlayerPanel.add(nextPlayer);
+		nextPlayerPanel.add(nextPlayerButton);
 		topPanel.add(nextPlayerPanel);
 		// nextPlayer action listener: increments player index
 		GameControlPanel thisControlPanel = this;
 
 		// Following is turn management logic.
-		nextPlayer.addActionListener(board.nextPlayerLogic);
+		nextPlayerButton.addActionListener(board.nextPlayerLogic);
 
 		// Button for making an Accusation created and added to GameControlPanel
-		JButton makeAccusation = new JButton("Make Accusation");
-		makeAccusation.setBackground(Color.ORANGE);
-		makeAccusation.setOpaque(true);
+		JButton makeAccusationButton = new JButton("Make Accusation");
+		makeAccusationButton.setBackground(Color.ORANGE);
+		makeAccusationButton.setOpaque(true);
+		makeAccusationButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (!Board.getInstance().isTurnOver()) {
+					MakeAnAccusation accusation = new MakeAnAccusation();
+					accusation.setVisible(true);
+				}
+			}
+		});
 		JPanel makeAccusationPanel = new JPanel(new BorderLayout());
-		makeAccusationPanel.add(makeAccusation);
+		makeAccusationPanel.add(makeAccusationButton);
 		topPanel.add(makeAccusationPanel);
 
 		// bottomPanel which includes guessPanel, and guessResultPanel
@@ -105,12 +114,12 @@ public class GameControlPanel extends JPanel {
 	}
 
 	// Sets Guess and updates JTextField for theGuess
-	private void setGuess(String theGuess) {
+	public void setGuess(String theGuess) {
 		this.theGuess.setText(theGuess);
 	}
 
 	// Sets GuessResults and updates JTextField for theGuessResult
-	private void setGuessResult(String theGuessResult) {
+	public void setGuessResult(String theGuessResult) {
 		this.theGuessResult.setText(theGuessResult);
 
 	}
