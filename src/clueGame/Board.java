@@ -49,6 +49,7 @@ public class Board extends JPanel {
 	private String layoutConfigFile;
 	private Solution theAnswer;
 	private boolean turnIsOver = false;
+	private List<Solution> potentialAccusations;
 	protected GameControlPanel thisControlPanel;
 
 	protected ActionListener nextPlayerLogic = new ActionListener() {
@@ -60,8 +61,9 @@ public class Board extends JPanel {
 			if (currentPlayer instanceof HumanPlayer) {
 				if (turnIsOver) { // process human's suggestions and move
 					turnIsOver = false;
-					JOptionPane.showMessageDialog(thisControlPanel, "Press next to show each CPU's turns.", "Turn complete!",
-							JOptionPane.INFORMATION_MESSAGE);
+
+					JOptionPane.showMessageDialog(thisControlPanel, "Press next to show each CPU's turns.",
+							"Turn complete!", JOptionPane.INFORMATION_MESSAGE);
 				} else { // make an angry message to the user
 
 					JOptionPane.showMessageDialog(thisControlPanel, "Please complete your turn.", "Turn not over!",
@@ -98,9 +100,17 @@ public class Board extends JPanel {
 				getCurrentPlayer().doMove(clickedCell.getRow(), clickedCell.getCol());
 				turnIsOver = true;
 				repaint();
+				if (roomMap.containsKey(clickedCell.getInitial()) && clickedCell.getInitial() != 'W') {
+					MakeASuggestion suggestionDialog = new MakeASuggestion(
+							roomMap.get(getCell(getCurrentPlayer().getRow(), getCurrentPlayer().getCol()).getInitial())
+									.getName(),
+							Board.getInstance());
+					suggestionDialog.setVisible(true);
+				}
 			} else {
-				JOptionPane.showMessageDialog(thisControlPanel, "Please select a valid target. \nYou will see your player move to\n that space. Click Next to \n confirm the move.", "Invalid target!",
-						JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(thisControlPanel,
+						"Please select a valid target. \nYou will see your player move to\n that space. Click Next to \n confirm the move.",
+						"Invalid target!", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 
@@ -159,6 +169,10 @@ public class Board extends JPanel {
 	public List<Card> getDeck() {
 		return deck;
 	}
+	
+	public boolean isTurnOver() {
+		return turnIsOver;
+	}
 
 	/**
 	 * Instantiates board and fills with generic TestBoardCells. Must call
@@ -167,6 +181,7 @@ public class Board extends JPanel {
 	private Board() {
 		super();
 		this.addMouseListener(new targetClicksManager());
+		potentialAccusations = new ArrayList<Solution>();
 	}
 
 	// Singleton Pattern
@@ -183,9 +198,21 @@ public class Board extends JPanel {
 		for (int i = 0; i < NUMPLAYERS; i++) {
 			disputeCards[i] = (players[i].equals(accuser)) ? null : (players[i].disproveSuggestion(suggestion));
 			if (disputeCards[i] != null) {
+				{
+					if (disputeCards[i].getOwnedBy() == null) {
+						disputeCards[i].setOwnedBy(players[i]);
+					}
+					// gets room based on the name of suggestion's room card
+					BoardCell roomCenter = roomMap.get(suggestion.getRoom().getCardName().charAt(0)).getCenterCell();
+					// move player to the room in the suggestion
+					if (roomCenter != null) {
+						disputeCards[i].getOwnedBy().doMove(roomCenter.getRow(), roomCenter.getCol());
+					}
+				}
 				return disputeCards[i];
 			}
 		}
+		potentialAccusations.add(suggestion);
 		return null;
 	}
 
@@ -400,21 +427,23 @@ public class Board extends JPanel {
 				// pick a random card
 				int randIndex = (int) (deck.size() * Math.random());
 				randCard = deck.get(randIndex);
-				staticDeck.add(randCard);
 				// for each type, fill with proper card if it hasn't been found yet
 				// once a card gets assigned to the solution, remove from deck
 				if (randCard.getCardType() == CardType.PERSON && person == null) {
 					person = randCard;
+					staticDeck.add(randCard);
 					deck.remove(randIndex);
 					continue;
 				}
 				if (randCard.getCardType() == CardType.ROOM && room == null) {
 					room = randCard;
+					staticDeck.add(randCard);
 					deck.remove(randIndex);
 					continue;
 				}
 				if (randCard.getCardType() == CardType.WEAPON && weapon == null) {
 					weapon = randCard;
+					staticDeck.add(randCard);
 					deck.remove(randIndex);
 					continue;
 				}
@@ -427,7 +456,9 @@ public class Board extends JPanel {
 				for (Player eachPlayer : players) {
 					if (!deck.isEmpty()) {
 						int randIndex = (int) (deck.size() * Math.random());
-						eachPlayer.updateHand(deck.get(randIndex));
+						randCard = deck.get(randIndex);
+						staticDeck.add(randCard);
+						eachPlayer.updateHand(randCard);
 						deck.remove(randIndex);
 					} else {
 						break;
@@ -435,6 +466,7 @@ public class Board extends JPanel {
 				}
 			}
 		}
+		deck = staticDeck; // refill the deck so it can be used later
 	}
 
 	public void setConfigFiles(String clueLayoutFile, String clueSetupFile) {
