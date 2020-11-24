@@ -52,7 +52,6 @@ public class ClueGame extends JFrame {
 
 		// Initialize new ClueGame
 		ClueGame game = new ClueGame();
-		// TODO fix up
 		board.rollDice();
 		board.calcTargets(board.getCell(board.getCurrentPlayer().getRow(), board.getCurrentPlayer().getCol()),
 				board.getDiceRoll());

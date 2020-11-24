@@ -76,7 +76,7 @@ public class Board extends JPanel {
 				cpu.selectTargets(getTargets());
 				BoardCell target = cpu.selectTargets(getTargets());
 				cpu.doMove(target);
-				handleSuggestion(computerSuggestion, cpu);
+				players[0].updateSeen(handleSuggestion(computerSuggestion, cpu));
 				if (!potentialAccusations.isEmpty()) {
 					int randIndex = (int) (Math.random() * potentialAccusations.size());
 					Solution accusation = potentialAccusations.get(randIndex);
@@ -96,7 +96,6 @@ public class Board extends JPanel {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
 			int row = (int) (numRows * Math.floor(e.getY() - Board.getInstance().getY())
 					/ (float) (Board.getInstance().getHeight())),
 					col = numCols * (e.getX() - Board.getInstance().getX()) / Board.getInstance().getWidth();
@@ -215,10 +214,16 @@ public class Board extends JPanel {
 						disputeCards[i].getOwnedBy().doMove(roomCenter.getRow(), roomCenter.getCol());
 					}
 				}
+				String guessResult = "";
+				guessResult = (accuser instanceof HumanPlayer)
+						? disputeCards[i].getOwnedBy().getName() + " disproved the suggestion with their card, "
+								+ disputeCards[i].getCardName() // player suggestion shows card when disproven
+						: disputeCards[i].getOwnedBy().getName() + " disproved the suggestion."; // CPU does not
 				return disputeCards[i];
 			}
 		}
 		potentialAccusations.add(suggestion);
+		thisControlPanel.setGuessResult("The suggestion from " + accuser.getName() + " was not disproven...");
 		return null;
 	}
 
@@ -746,7 +751,6 @@ public class Board extends JPanel {
 	}
 
 	public void setTheAnswerTest() {
-		// TODO: Set the answer for GameSolutionTest.java method testing
 		Card thePerson = new Card("Miss Peacock", CardType.PERSON);
 		Card theRoom = new Card("Theater", CardType.ROOM);
 		Card theWeapon = new Card("Rope", CardType.WEAPON);

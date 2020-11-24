@@ -148,6 +148,7 @@ public class MakeAnAccusation extends JDialog {
 
 	}
 
+	// For Testing of Accusation Dialog
 	public static void main(String[] args) {
 		Board board = Board.getInstance();
 		board.setConfigFiles("data/ClueLayout.csv", "data/ClueSetup.txt");
