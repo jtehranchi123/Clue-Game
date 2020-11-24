@@ -1,8 +1,62 @@
+commit 1b463e385be4931da87bcdf3541e02bf0e8a9c93
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Tue Nov 24 14:31:52 2020 -0700
+
+    Added functionality for seen cards to update on GUI in ClueGame.java
+
+commit 6a145d99565d1e24943d05946ce4ceedabefb188
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Tue Nov 24 12:32:36 2020 -0700
+
+    Added handling of guess result for Human Player into Board.java
+
+commit 2d7b855a6b6f8d3e16801369525aa28c231fc36e
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Mon Nov 23 18:11:48 2020 -0700
+
+    Modified Accusation button to only be clickable when it's your turn
+
+commit 14753e02b1a438bbb35a3446d90b228cd7843753
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Sun Nov 22 18:00:17 2020 -0700
+
+    Refactored current code before Accusation button into final game
+
+commit 6ab43ffc038fc763249725712708df5b036d4257
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Sun Nov 22 17:49:07 2020 -0700
+
+    Added MakeASuggestion.java and MakeAnAccusation.java classes to cluegame for creating GUI's
+
+commit a152d32c1cee4bf4eb9b51ed51a80ff48a6ff5f8
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Sun Nov 22 17:48:42 2020 -0700
+
+    Make Make an accusation button in cluegame interactive to create accusation class instance
+
+commit 0e4aabab21d14daa2bbae7318855f066a1fc8645
+Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
+Date:   Sun Nov 22 17:48:13 2020 -0700
+
+    Configured and added getters to board for accessing current turn and player indexes
+
 commit 24dda56664838256484ecf2ca9d6b0c36a034f5e
 Author: Jordan Tehranchi <jordan.tehranchi@homeadvisor.com>
 Date:   Tue Nov 17 10:45:27 2020 -0700
 
     Commit for adding all files to new ClueGame project
+
+commit 98bf99d6a285478a34bc961eed16cf60098fa2ae
+Author: Tommy Bullock <revtimtom22@gmail.com>
+Date:   Mon Nov 16 20:03:32 2020 -0700
+
+    Made old tests pass after changes to movement, card logic
+
+commit cb330f041e9b20fb74a84d51aad5018abd5f82ea
+Author: Tommy Bullock <revtimtom22@gmail.com>
+Date:   Mon Nov 16 20:03:01 2020 -0700
+
+    Jordan and Tommy debugged graphics, added initial turn flow
     
 commit 98bf99d6a285478a34bc961eed16cf60098fa2ae
 Author: Tommy Bullock <revtimtom22@gmail.com>
