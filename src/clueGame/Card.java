@@ -4,6 +4,11 @@ import java.awt.Color;
 
 public class Card implements Comparable<Card> {
 
+	@Override
+	public String toString() {
+		return cardName;
+	}
+
 	private String cardName;
 
 	private CardType cardType;

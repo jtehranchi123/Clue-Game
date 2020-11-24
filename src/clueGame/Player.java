@@ -12,8 +12,7 @@ public abstract class Player {
 
 	private String name;
 	private Color color;
-	protected int row;
-	protected int column;
+	protected int row, column, index;
 
 	protected List<Card> hand;
 	protected List<Card> seen;
@@ -115,5 +114,9 @@ public abstract class Player {
 	public void doMove(int newRow, int newCol) {
 		row = newRow;
 		column = newCol;
+	}
+
+	public Card toCard() {
+		return new Card(name, CardType.PERSON);
 	}
 }

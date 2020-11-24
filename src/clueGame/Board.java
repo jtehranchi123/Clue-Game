@@ -70,14 +70,19 @@ public class Board extends JPanel {
 							JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
-			} else { // ComputerPlayer logic follows
+			} else if (!deactivatedComputers[playerIndex]) { // ComputerPlayer logic follows
 				ComputerPlayer cpu = (ComputerPlayer) currentPlayer;
-				Solution computerAccusation = cpu.createSuggestion(theInstance);
-				checkAccusation(computerAccusation);
+				Solution computerSuggestion = cpu.createSuggestion(theInstance);
 				cpu.selectTargets(getTargets());
 				BoardCell target = cpu.selectTargets(getTargets());
 				cpu.doMove(target);
-				handleSuggestion(computerAccusation, cpu);
+				handleSuggestion(computerSuggestion, cpu);
+				if (!potentialAccusations.isEmpty()) {
+					int randIndex = (int) (Math.random() * potentialAccusations.size());
+					Solution accusation = potentialAccusations.get(randIndex);
+					potentialAccusations.remove(randIndex);
+					deactivatedComputers[playerIndex] = checkAccusation(accusation);
+				}
 			}
 			rollDice();
 			nextPlayer();
@@ -141,6 +146,7 @@ public class Board extends JPanel {
 	}
 
 	private Player[] players;
+	private boolean[] deactivatedComputers;
 	public static final int NUMPLAYERS = 6;
 	private int playerIndex, diceRoll;
 	List<Card> deck;
@@ -169,7 +175,7 @@ public class Board extends JPanel {
 	public List<Card> getDeck() {
 		return deck;
 	}
-	
+
 	public boolean isTurnOver() {
 		return turnIsOver;
 	}
@@ -219,6 +225,7 @@ public class Board extends JPanel {
 	public void initialize() {
 		// instantiate players, deck
 		players = new Player[NUMPLAYERS];
+		deactivatedComputers = new boolean[NUMPLAYERS];
 		deck = new ArrayList<Card>();
 		staticDeck = new ArrayList<Card>();
 		// reset the board size before filling out any info
@@ -353,10 +360,12 @@ public class Board extends JPanel {
 							switch (line[3]) {
 							case "Human": {
 								players[i] = new HumanPlayer(playerName, row, col, color);
+								players[i].index = i;
 							}
 								break;
 							case "Computer": {
 								players[i] = new ComputerPlayer(playerName, row, col, color);
+								players[i].index = i;
 							}
 								break;
 							default:

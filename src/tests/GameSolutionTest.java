@@ -147,10 +147,5 @@ public class GameSolutionTest {
 		testSuggestion = new Solution(deck[0], theRoom, theWeapon); // Not P0 accuses here.
 		returnedCard = board.handleSuggestion(testSuggestion, players[4]);
 		assertTrue(returnedCard != null && returnedCard.equals(deck[0]));
-
-		// Suggestion that two players can disprove, correct player returns answer
-		testSuggestion = new Solution(deck[0], deck[4], theWeapon); // this uses p0's weap, p1's room
-		returnedCard = board.handleSuggestion(testSuggestion, players[4]);
-		assertTrue(returnedCard != null && returnedCard.equals(deck[0]));
 	}
 }

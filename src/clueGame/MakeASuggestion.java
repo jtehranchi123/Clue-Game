@@ -103,7 +103,7 @@ public class MakeASuggestion extends JDialog {
 				if (card != null) {
 					ClueGame.setSuggestionUI(solution.toString(), card.getCardName());
 				} else {
-					ClueGame.setSuggestionUI(solution.toString(), "Nothin New");
+					ClueGame.setSuggestionUI(solution.toString(), "No New Clue");
 				}
 				dispose();
 			}

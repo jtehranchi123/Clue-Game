@@ -72,9 +72,13 @@ public class GameControlPanel extends JPanel {
 		makeAccusationButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (!Board.getInstance().isTurnOver()) {
+				if (Board.getInstance().getCurrentPlayer() instanceof HumanPlayer) {
 					MakeAnAccusation accusation = new MakeAnAccusation();
 					accusation.setVisible(true);
+				}
+				else {
+					JOptionPane.showMessageDialog(Board.getInstance(), "You cannot accuse when it's not your turn!!", "Accusation Error",
+							JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});
