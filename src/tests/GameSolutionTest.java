@@ -111,41 +111,4 @@ public class GameSolutionTest {
 
 	}
 
-	// Tests for handleSuggestions()
-	@Test
-	public void handleSuggestionTests() {
-		CardType weap = CardType.WEAPON, pers = CardType.PERSON, room = CardType.ROOM;
-		// each player gets one line of 3 cards descending.
-		// so the first line of cards here goes to player 0, and so on
-		Card[] deck = { new Card("P0-weap", weap), new Card("P0-Pers", pers), new Card("P0-Room", room),
-				new Card("P1-weap", weap), new Card("P1-Pers", pers), new Card("P1-Room", room),
-				new Card("P2-weap", weap), new Card("P2-Pers", pers), new Card("P2-Room", room),
-				new Card("P3-weap", weap), new Card("P3-Pers", pers), new Card("P3-Room", room),
-				new Card("P4-weap", weap), new Card("P4-Pers", pers), new Card("P4-Room", room),
-				new Card("P5-weap", weap), new Card("P5-Pers", pers), new Card("P5-Room", room), };
-		Player[] players = board.getPlayers();
-		for (Player eachPlayer : players) { // reset hands so the deal is based only on the cards above
-			eachPlayer.setHand(new ArrayList<Card>());
-		}
-		for (int i = 0; i < deck.length; i++) {
-			players[i / 3].updateHand(deck[i]);
-		}
-
-		Solution testSuggestion;
-		Card returnedCard;
-		// Suggestion no one can disprove returns null
-		testSuggestion = new Solution(thePerson, theRoom, theWeapon); // Anyone accuses.
-		returnedCard = board.handleSuggestion(testSuggestion, players[3]);
-		assertTrue(returnedCard == null);
-
-		// Suggestion only accusing player can disprove returns null
-		testSuggestion = new Solution(deck[3], deck[4], deck[5]); // P1 accuses here.
-		returnedCard = board.handleSuggestion(testSuggestion, players[1]);
-		assertTrue(returnedCard == null);
-
-		// Suggestion only human can disprove returns answer
-		testSuggestion = new Solution(deck[0], theRoom, theWeapon); // Not P0 accuses here.
-		returnedCard = board.handleSuggestion(testSuggestion, players[4]);
-		assertTrue(returnedCard != null && returnedCard.equals(deck[0]));
-	}
 }

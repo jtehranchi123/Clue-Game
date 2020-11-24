@@ -1,0 +1,5 @@
+Names: Jordan Tehranchi and Tommy Bullock
+
+- > Added integration into game that allows for side-by-side view of known hand cards and seen cards for extra convenience to the player
+- > color coded players and cards for convenience
+- > improved computer player AI to be more randomized and thoughtful of HumanPlayer moves

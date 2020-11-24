@@ -100,10 +100,10 @@ public class MakeASuggestion extends JDialog {
 				Player player = Board.getInstance().getCurrentPlayer();
 				Card card = Board.getInstance().handleSuggestion(solution, player);
 				if (card != null) {
-					ClueGame.setSuggestionUI(solution.toString(), card.getCardName());
+					ClueGame.setSuggestionUI(solution.toString());
 					Board.getInstance().getCurrentPlayer().updateSeen(card);
 				} else {
-					ClueGame.setSuggestionUI(solution.toString(), "No New Clue");
+					ClueGame.setSuggestionUI(solution.toString());
 				}
 				dispose();
 			}

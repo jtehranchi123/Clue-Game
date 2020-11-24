@@ -76,7 +76,9 @@ public class Board extends JPanel {
 				cpu.selectTargets(getTargets());
 				BoardCell target = cpu.selectTargets(getTargets());
 				cpu.doMove(target);
-				players[0].updateSeen(handleSuggestion(computerSuggestion, cpu));
+				if (!computerSuggestion.getRoom().getCardName().equals("Walkway")) {
+					players[0].updateSeen(handleSuggestion(computerSuggestion, cpu));
+				}
 				if (!potentialAccusations.isEmpty()) {
 					int randIndex = (int) (Math.random() * potentialAccusations.size());
 					Solution accusation = potentialAccusations.get(randIndex);
@@ -88,7 +90,9 @@ public class Board extends JPanel {
 			nextPlayer();
 			calcTargets(getCell(getCurrentPlayer().getRow(), getCurrentPlayer().getCol()), getDiceRoll());
 			thisControlPanel.update();
+			ClueGame.updateCardsPanel();
 			repaint();
+			System.out.println(players[0].getName() + " : " + players[0].getSeen());
 		}
 	};
 
@@ -219,11 +223,12 @@ public class Board extends JPanel {
 						? disputeCards[i].getOwnedBy().getName() + " disproved the suggestion with their card, "
 								+ disputeCards[i].getCardName() // player suggestion shows card when disproven
 						: disputeCards[i].getOwnedBy().getName() + " disproved the suggestion."; // CPU does not
+				thisControlPanel.setGuessResult(guessResult);
 				return disputeCards[i];
 			}
 		}
 		potentialAccusations.add(suggestion);
-		thisControlPanel.setGuessResult("The suggestion from " + accuser.getName() + " was not disproven...");
+		thisControlPanel.setGuessResult("No new clue");
 		return null;
 	}
 
