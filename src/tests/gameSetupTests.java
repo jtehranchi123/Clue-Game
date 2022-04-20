@@ -92,30 +92,6 @@ public class gameSetupTests {
 	}
 
 	@Test
-	void testInitializeAndDeal() {
-		// this test relies on the deal() function.
-		// ensure players, cards load correctly from ClueSetup.txt
-		List<Card> deck = board.getDeck();
-		Player[] players = board.getPlayers();
-		Solution theAnswer = board.getTheAnswer();
-
-		// ensure all cards have been dealt
-		assertTrue(deck.size() == 0);
-
-		// ensure solution is filled
-		assertTrue(theAnswer != null);
-		assertTrue(theAnswer.getPerson() != null);
-		assertTrue(theAnswer.getRoom() != null);
-		assertTrue(theAnswer.getWeapon() != null);
-
-		// ensure all players exist and that players' hands are filled
-		for (Player each : players) {
-			assertTrue(each != null);
-			assertTrue(each.getHandSize() != 0);
-		}
-	}
-
-	@Test
 	void testHumanAndComputer() {
 		// this test ensures 5 computer players and 1 human player
 		Player[] players = board.getPlayers();
