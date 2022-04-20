@@ -1,6 +1,9 @@
-Author: Thomas Bullock
-Section: A
+Author: Jordan Tehranchi
+Partner Name: Tommy Bullock
+
+Out of the numerous projects I explored in university (Colorado School of Mines) and at various internships, my most in-depth project so far has been the ClueGame project that I was given in my Software Engineering course. I was on a team of 2 where me and my teammate both pair-programmed a complete Java program that took the Clue board game and incorporated a (.jar) program to be able to execute the entire game with a GUI included on any computer and with CPU players. The project was built with a Singleton Design Pattern, consisting of ~5000 lines of Java code, included JUnit Testing, JFrame and JPanel for the GUI, a Board Layout file for reference, and included consistent code reviews to ensure quality delivery. The entire project took 2.5 months to create and the course was designed with an Agile environment including 2-week sprints. The most important design decision was splitting up each of the functions into multiple mini-tasks compared to large tasks to prevent burning out, in addition to establishing continuous communication. At first, my teammate and I only had once or twice a week communication and fell behind on our sprints because one of us would have to learn an entire week of code that the other did, then implement their side of the code with that code (e.g creating a Board Adjacency Matrix, or Board Targets for the different players). Once we found the elephant in the room and learned that daily communication (almost like a daily stand-up) was necessary, we met at a coffee shop daily to work together through the outline of what each of us would do that day and set clear our expectations (both real and optimistic) for the end of the week. Through this experience, my teammate and I both learned to communicate like true Scrum Masters and lead our team to victory with a fully functional ClueGame.
 
 
-Partner Name: Jordan Tehranchi
-Section: A
+
+
+
